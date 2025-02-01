@@ -1,0 +1,384 @@
+/* CSS Reset and Variables */
+:root {
+    --primary-color: #4A4A4A;    /* Dark gray for text */
+    --secondary-color: #6B6B6B;   /* Medium gray */
+    --accent-color: #D4A373;      /* Warm accent */
+    --text-color: #4A4A4A;        /* Dark gray */
+    --background-cream: #FAF3E8;  /* Main cream background */
+    --background-white: #FFFFFF;  /* Pure white */
+    --background-light: #FFF9F2;  /* Lighter cream */
+    --border-color: #E6DDD1;     /* Subtle border color */
+    --spacing-unit: 1rem;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-cream);
+}
+
+/* Remove grain texture */
+body::before {
+    display: none;
+}
+
+/* Navigation Styles */
+.main-nav {
+    position: fixed;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(250, 243, 232, 0.95); /* Cream with opacity */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 2rem;
+    background: var(--background-light);
+}
+
+.model-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-light);
+    position: relative;
+}
+
+#hearing-aid-model {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Remove the background from #hearing-aid-model since Three.js will handle it */
+
+.hero-content {
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+    margin-top: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background: var(--accent-color);
+}
+
+/* Content Sections */
+.insights, .prototype {
+    padding: 5rem 2rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.research-data, .personal-experience, .key-takeaways,
+.software-overview, .interactive-demo, .technical-insights {
+    background: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .model-container {
+        height: 50vh;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content, .content-grid > div {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Stats Styling */
+.stat-container {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.stat h4 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Takeaway List Styling */
+.takeaway-list {
+    list-style: none;
+    padding: 0;
+}
+
+.takeaway-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.takeaway-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Demo Section Styling */
+.demo-container {
+    background: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+#waveform-visualizer {
+    height: 200px;
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.demo-controls {
+    display: grid;
+    gap: 1rem;
+}
+
+.demo-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-button:hover {
+    background: var(--accent-color);
+}
+
+.slider-container {
+    display: grid;
+    gap: 0.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+/* Tech Features Styling */
+.tech-features {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-features li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Quick Links */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+.loading-container {
+    background: #FFF9F2;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.loading-container h3 {
+    color: #4A4A4A;
+    margin-bottom: 1.5rem;
+}
+
+#waveform-visualizer {
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    margin: 1rem 0;
+}
+
+.loading-text {
+    color: #4A4A4A;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.8;
+} 
