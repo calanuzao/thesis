@@ -47,12 +47,25 @@ body::before {
 }
 
 .logo a {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--primary-color);
     text-decoration: none;
     text-transform: uppercase;
+}
+
+.logo img {
+    height: 2em;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
 .nav-links {
