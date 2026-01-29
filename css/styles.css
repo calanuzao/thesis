@@ -1,3 +1,12 @@
+/* Thesis subtitle styling */
+.thesis-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #6B6B6B;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+}
 /* CSS Reset and Variables */
 :root {
     --primary-color: #4A4A4A;    /* Dark gray for text */
@@ -101,15 +110,22 @@ body::before {
     justify-content: center;
     background: var(--background-light);
     position: relative;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
 }
 
 #hearing-aid-model {
     width: 100%;
     height: 100%;
+    max-width: 600px;
+    max-height: 80vh;
+    margin: 0 auto;
     border-radius: var(--border-radius);
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 /* Remove the background from #hearing-aid-model since Three.js will handle it */
@@ -184,8 +200,11 @@ footer {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 2rem;
     margin-bottom: 2rem;
 }
